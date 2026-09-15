@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <author>
-    <name>站长</name>
+    <name>波利</name>
   </author>
   <generator uri="https://hexo.io/">Hexo</generator>
   <id>https://jichangblog.net/</id>
   <link href="https://jichangblog.net/" rel="alternate"/>
   <link href="https://jichangblog.net/atom.xml" rel="self"/>
-  <rights>All rights reserved 2026, 站长</rights>
-  <subtitle>机场博客专注2026机场推荐、稳定机场评测、IPLC专线对比与Clash教程，整理价格、线路、流媒体、AI解锁和常见问题，帮助你更快找到适合自己的机场。</subtitle>
+  <rights>All rights reserved 2026, 波利</rights>
+  <subtitle>机场博客专注2026机场推荐、稳定机场评测、IPLC专线对比与Clash教程，记录日常使用和测速体验，分享真实优缺点，不夸大宣传。</subtitle>
   <title>机场博客｜2026稳定机场推荐、评测与Clash使用指南</title>
   <updated>2026-08-14T23:00:00.000Z</updated>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 基础" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%9F%BA%E7%A1%80/"/>
@@ -29,7 +29,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 未来" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AA%E6%9D%A5/"/>
@@ -45,7 +45,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -61,7 +61,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -77,7 +77,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI Agent" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-Agent/"/>
@@ -93,7 +93,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -109,7 +109,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 安全" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%AE%89%E5%85%A8/"/>
@@ -125,7 +125,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -141,7 +141,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -157,7 +157,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -173,7 +173,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -189,7 +189,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 安全" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%AE%89%E5%85%A8/"/>
@@ -205,7 +205,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="科普指南" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/"/>
     <category term="2026年教程" scheme="https://jichangblog.net/categories/%E7%A7%91%E6%99%AE%E6%8C%87%E5%8D%97/2026%E5%B9%B4%E6%95%99%E7%A8%8B/"/>
@@ -221,7 +221,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 安全" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%AE%89%E5%85%A8/"/>
@@ -237,7 +237,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 未来" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AA%E6%9D%A5/"/>
@@ -253,7 +253,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 未来" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AA%E6%9D%A5/"/>
@@ -269,7 +269,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 未来" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AA%E6%9D%A5/"/>
@@ -285,7 +285,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI Agent" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-Agent/"/>
@@ -301,7 +301,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 基础" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%9F%BA%E7%A1%80/"/>
@@ -317,7 +317,7 @@
   </entry>
   <entry>
     <author>
-      <name>站长</name>
+      <name>波利</name>
     </author>
     <category term="AI教程" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/"/>
     <category term="AI 基础" scheme="https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%9F%BA%E7%A1%80/"/>
