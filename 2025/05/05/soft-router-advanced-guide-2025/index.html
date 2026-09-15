@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+    <link rel="canonical" href="https://jichangblog.net/2025/05/05/soft-router-advanced-guide-2025/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="站长">
+  <meta name="keywords" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+  
+    <meta name="description" content="本文专为有一定基础的用户打造，深入解析2025 软路由进阶指南的高阶应用场景与高级配置技巧，重点探讨用 N100、小主机和 OpenWrt 打造家庭网络中枢，…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025 软路由进阶指南南">
+<meta property="og:url" content="https://jichangblog.net/2025/05/05/soft-router-advanced-guide-2025/">
+<meta property="og:site_name" content="机场博客｜2026稳定机场推荐、评测与Clash使用指南">
+<meta property="og:description" content="本文专为有一定基础的用户打造，深入解析2025 软路由进阶指南的高阶应用场景与高级配置技巧，重点探讨用 N100、小主机和 OpenWrt 打造家庭网络中枢，…">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-04T19:20:00.000Z">
+<meta property="article:modified_time" content="2025-05-04T19:20:00.000Z">
+<meta property="article:author" content="站长">
+<meta property="article:tag" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2025 软路由进阶指南南 - 机场博客｜2026稳定机场推荐、评测与Clash使用指南</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom-bg.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jichangblog.net","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"expand_all":true},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="机场博客｜2026稳定机场推荐、评测与Clash使用指南" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>闈犺氨鏈哄満鎺ㄨ崘</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>棣栭〉</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E9%8E%BA%E3%84%A8%E5%B4%98/" target="_self">
+                <i class="iconfont icon-paper-plane"></i>
+                <span>鏈哄満鎺ㄨ崘</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E7%92%87%E5%8B%AC%E7%A5%B4/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>鏈哄満璇勬祴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BB%89%E6%88%9E%E6%AB%98%E9%8E%B8%E5%9B%A7%E5%B4%A1/" target="_self">
+                <i class="iconfont icon-compass-fill"></i>
+                <span>鏂版墜鍏ラ棬</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/Clash%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>Clash鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BC%83%E6%88%A0%E7%B2%B6%E5%AE%B8%E3%83%A5%E5%8F%BF/" target="_self">
+                <i class="iconfont icon-tools"></i>
+                <span>缃戠粶宸ュ叿</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/AI%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-cpu"></i>
+                <span>AI鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>鍗氬褰掓。</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/index_bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2025 软路由进阶指南南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-05 03:20" pubdate>
+          2025年5月5日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2025 软路由进阶指南南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p><strong>作者注</strong>：本文基于本站长期测试经验整理，并结合 2024–2026 年的使用记录进行分析。</p>
+</blockquote>
+<h2 id="五、-软路由高频问题解答-FAQ"><a href="#五、-软路由高频问题解答-FAQ" class="headerlink" title="五、 软路由高频问题解答 (FAQ)"></a>五、 软路由高频问题解答 (FAQ)</h2><h3 id="1-普通家庭上网需要软路由吗？"><a href="#1-普通家庭上网需要软路由吗？" class="headerlink" title="1. 普通家庭上网需要软路由吗？"></a>1. 普通家庭上网需要软路由吗？</h3><p><strong>不需要。</strong> 如果你只是刷抖音、看爱优腾视频、玩国内网游，几十块的硬路由已经能提供极致的体验了。软路由是为了解决“常规网络环境无法满足的特殊需求”（如复杂的全球路由分流、全屋去广告、家庭服务器内网穿透）而存在的。</p>
+<h3 id="2-N100-小主机能保证千兆宽带跑满吗？"><a href="#2-N100-小主机能保证千兆宽带跑满吗？" class="headerlink" title="2. N100 小主机能保证千兆宽带跑满吗？"></a>2. N100 小主机能保证千兆宽带跑满吗？</h3><p><strong>不一定。</strong> 跑满千兆不仅取决于 N100 的算力，还取决于：</p>
+<ul>
+<li>测速目标服务器的带宽是否足够。</li>
+<li>你使用的代理协议加密强度（部分复杂协议下 N100 单核会满载，可能跑到 600-800Mbps 就会遇到瓶颈）。</li>
+<li>OpenWrt 固件是否开启了网络加速卸载。</li>
+</ul>
+<h3 id="3-旁路由架构会导致国内网络变慢吗？"><a href="#3-旁路由架构会导致国内网络变慢吗？" class="headerlink" title="3. 旁路由架构会导致国内网络变慢吗？"></a>3. 旁路由架构会导致国内网络变慢吗？</h3><p>如果配置不当，<strong>会</strong>。在传统的旁路由设置中，国内流量依然要先从硬路由发给旁路由，旁路由判断为国内流量后再发回给硬路由，这多出了一次“折返跑”，会增加极微小的延迟，并且占用局域网带宽。建议通过修改防火墙规则开启“国内流量直接放行”或直接采用伪装 NAT（Masquerade）优化路由表。</p>
+<h3 id="4-什么是-TUN-模式，它和系统代理有啥区别？"><a href="#4-什么是-TUN-模式，它和系统代理有啥区别？" class="headerlink" title="4. 什么是 TUN 模式，它和系统代理有啥区别？"></a>4. 什么是 TUN 模式，它和系统代理有啥区别？</h3><p>系统代理（HTTP&#x2F;SOCKS5 代理）依赖于软件自身的支持，很多软件（如命令行工具、某些游戏客户端）完全不理会系统代理设置，导致流量依然走直连。<br><strong>TUN 模式</strong> 则是在系统底层建立一张虚拟网卡，无论软件是否支持代理，所有发出的数据包都会被操作系统的路由表强制吸入 TUN 网卡中进行处理，属于真正的“全局接管”。</p>
+<h3 id="5-软路由发热大吗？可以一直开着做主路由吗？"><a href="#5-软路由发热大吗？可以一直开着做主路由吗？" class="headerlink" title="5. 软路由发热大吗？可以一直开着做主路由吗？"></a>5. 软路由发热大吗？可以一直开着做主路由吗？</h3><p>N100 满载功耗虽然不高，但在无风扇的被动散热金属外壳下，长时间高负载表面温度达到 50-60 度是很正常的。为了稳定，不建议将无风扇软路由作为唯一主路由。保持环境通风，或者加装一个小尺寸的 USB 散热风扇，能大幅提高系统的长期稳定性。</p>
+<h3 id="6-遇到网络断流或者-DNS-泄露怎么排查？"><a href="#6-遇到网络断流或者-DNS-泄露怎么排查？" class="headerlink" title="6. 遇到网络断流或者 DNS 泄露怎么排查？"></a>6. 遇到网络断流或者 DNS 泄露怎么排查？</h3><ul>
+<li><strong>断流</strong>：通常是网卡驱动（如 i226-V 的节能模式导致）或代理内核崩溃引起。尝试在 OpenWrt 的系统日志（Kernel Log）中搜索 <code>eth</code> 相关的报错。</li>
+<li><strong>DNS泄露</strong>：检查你的 Clash&#x2F;sing-box DNS 配置。确保国内域名使用当地运营商或阿里&#x2F;腾讯 DNS 解析，海外域名必须由远端服务器代为解析。不要在旁路由上混用其它 DNS 劫持插件（如 AdGuard Home），这会造成逻辑冲突。</li>
+</ul>
+<hr>
+<h2 id="结语：让你的网络中枢发挥最大价值"><a href="#结语：让你的网络中枢发挥最大价值" class="headerlink" title="结语：让你的网络中枢发挥最大价值"></a>结语：让你的网络中枢发挥最大价值</h2><p>折腾软路由是一个充满乐趣但又容易让人抓狂的过程。从挑选小主机、刷入 OpenWrt、配置旁路由拓扑，到深入研究底层分流内核，每一次折腾都是对网络底层逻辑的一次深度认知。</p>
+<p>当你已经打造好了高性能的 N100 软路由，却发现体验依然不尽如人意时，不妨审视一下你所使用的“线路”是否成了木桶中最短的那块木板。对于追求极致稳定、需要频繁进行跨国会议、流媒体无缓冲播放的高阶用户来说，搭配高质量的 <strong>IPLC&#x2F;IEPL 专线节点</strong>，利用大带宽与低延迟的特性，才能真正彻底释放这台软路由的全部潜能。毕竟，一辆法拉利只有开在平整的高速公路上，才能真正体会到引擎轰鸣的快感。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" class="category-chain-item">网络工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2025 软路由进阶指南南</div>
+      <div>https://jichangblog.net/2025/05/05/soft-router-advanced-guide-2025/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>站长</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/05/06/%E7%96%BE%E9%A3%8E%E4%BA%91-2025/" title="疾风云2025国内中转效能报告：把延迟降到最低的极致追求">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">疾风云2025国内中转效能报告：把延迟降到最低的极致追求</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/02/claude-code-intro-2025/" title="Claude Code 入门：从聊天到直接参与开发工作">
+                        <span class="hidden-mobile">Claude Code 入门：从聊天到直接参与开发工作</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

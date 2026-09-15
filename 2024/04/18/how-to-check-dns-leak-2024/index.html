@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+    <link rel="canonical" href="https://jichangblog.net/2024/04/18/how-to-check-dns-leak-2024/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="站长">
+  <meta name="keywords" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+  
+    <meta name="description" content="本文深入科普DNS 泄露的基本概念、技术架构与工作原理，并进一步分析2024 新手如何自己检测 DNS、IPv6 和 WebRTC，适合对该领域感兴趣的初学者…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNS 泄露是什么？2024 新手如何自己检测 DNS、IP 泄露？">
+<meta property="og:url" content="https://jichangblog.net/2024/04/18/how-to-check-dns-leak-2024/">
+<meta property="og:site_name" content="机场博客｜2026稳定机场推荐、评测与Clash使用指南">
+<meta property="og:description" content="本文深入科普DNS 泄露的基本概念、技术架构与工作原理，并进一步分析2024 新手如何自己检测 DNS、IPv6 和 WebRTC，适合对该领域感兴趣的初学者…">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-18T00:45:00.000Z">
+<meta property="article:modified_time" content="2024-04-18T00:45:00.000Z">
+<meta property="article:author" content="站长">
+<meta property="article:tag" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>DNS 泄露是什么？2024 新手如何自己检测 DNS、IP 泄露？ - 机场博客｜2026稳定机场推荐、评测与Clash使用指南</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom-bg.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jichangblog.net","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"expand_all":true},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="机场博客｜2026稳定机场推荐、评测与Clash使用指南" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>闈犺氨鏈哄満鎺ㄨ崘</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>棣栭〉</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E9%8E%BA%E3%84%A8%E5%B4%98/" target="_self">
+                <i class="iconfont icon-paper-plane"></i>
+                <span>鏈哄満鎺ㄨ崘</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E7%92%87%E5%8B%AC%E7%A5%B4/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>鏈哄満璇勬祴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BB%89%E6%88%9E%E6%AB%98%E9%8E%B8%E5%9B%A7%E5%B4%A1/" target="_self">
+                <i class="iconfont icon-compass-fill"></i>
+                <span>鏂版墜鍏ラ棬</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/Clash%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>Clash鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BC%83%E6%88%A0%E7%B2%B6%E5%AE%B8%E3%83%A5%E5%8F%BF/" target="_self">
+                <i class="iconfont icon-tools"></i>
+                <span>缃戠粶宸ュ叿</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/AI%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-cpu"></i>
+                <span>AI鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>鍗氬褰掓。</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/index_bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="DNS 泄露是什么？2024 新手如何自己检测 DNS、IP 泄露？"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-18 08:45" pubdate>
+          2024年4月18日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">DNS 泄露是什么？2024 新手如何自己检测 DNS、IP 泄露？</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p><strong>作者注</strong>：本文基于本站长期测试经验整理，并结合 2024–2026 年的使用记录进行分析。</p>
+</blockquote>
+<h2 id="什么是-DNS？互联网的超级“电话簿”"><a href="#什么是-DNS？互联网的超级“电话簿”" class="headerlink" title="什么是 DNS？互联网的超级“电话簿”"></a>什么是 DNS？互联网的超级“电话簿”</h2><p>在搞懂什么是 DNS 泄露之前，我们必须先明白 DNS（Domain Name System，域名系统）是干什么的。</p>
+<p>如果你要给朋友打电话，你通常不会去背他那一长串的电话号码（比如 <code>138-xxxx-xxxx</code>），而是直接在手机通讯录里搜索他的名字“张三”，点击拨号，手机会自动帮你转换成号码并拨打出去。</p>
+<p>互联网的运作方式也是一样的。网站的真实地址是一串数字，称为 <strong>IP 地址</strong>（比如 <code>142.250.190.46</code>）。但是，人类的记忆力很难记住成千上万个这样的数字，所以我们发明了<strong>域名</strong>（比如 <code>google.com</code> 或 <code>baidu.com</code>）。</p>
+<p>当你在这个浏览器里输入 <code>www.example.com</code> 并按下回车时，你的电脑其实并不知道这个网站在哪里。它需要求助：</p>
+<ol>
+<li>你的电脑向 <strong>DNS 服务器</strong> 发送一个请求：“请问 <code>www.example.com</code> 的 IP 地址是多少？”</li>
+<li>DNS 服务器查找自己的“电话簿”，然后回复：“它的 IP 地址是 <code>93.184.216.34</code>。”</li>
+<li>你的电脑拿到 IP 地址后，才正式向这个地址发起连接，加载网页内容。</li>
+</ol>
+<p>在默认情况下，你使用的 DNS 服务器是由你的互联网服务提供商（ISP，即电信、联通、移动等）自动分配的。这意味着，<strong>你每次访问一个网站，你的 ISP 都会在这个“电话簿”上留下记录</strong>。</p>
+<h2 id="什么是-DNS-泄露（DNS-Leak）？"><a href="#什么是-DNS-泄露（DNS-Leak）？" class="headerlink" title="什么是 DNS 泄露（DNS Leak）？"></a>什么是 DNS 泄露（DNS Leak）？</h2><p>理解了 DNS 的工作原理，DNS 泄露就非常好理解了。</p>
+<p>假设你想匿名给远方的一家“神秘商店”写信。为了不让人知道是你写的，你雇佣了一个名为“代理”的私人保镖。你的计划是：把信件交给保镖，保镖帮你送到神秘商店。这样，别人就只知道保镖去过商店，不知道你去了。</p>
+<p>这个计划听起来很完美，对吧？</p>
+<p><strong>但是，你犯了一个致命的错误：你不知道神秘商店的具体地址。</strong> 于是，你在把信交给保镖之前，大摇大摆地跑到村口的邮局（也就是你的本地 ISP），大声询问：“请问神秘商店的地址在哪里？”<br>邮局的人告诉你地址后，你把地址写在信封上，交给了保镖。</p>
+<p>这就是 <strong>DNS 泄露</strong>！</p>
+<p>在网络世界中，这意味着：虽然你通过 VPN 或代理软件加密了你的<strong>数据内容</strong>（保镖运送的信件），但你用来查询目标网站 IP 地址的 <strong>DNS 请求</strong>，依然是直接发送给你本地的 ISP 的。</p>
+<h3 id="DNS-泄露的后果是什么？"><a href="#DNS-泄露的后果是什么？" class="headerlink" title="DNS 泄露的后果是什么？"></a>DNS 泄露的后果是什么？</h3><p>首先，不用过度恐慌。<strong>DNS 泄露并不意味着你的所有数据都被盗了</strong>。得益于现代互联网广泛使用的 HTTPS 加密协议，即使发生了 DNS 泄露，你的本地运营商（ISP）也<strong>无法看到你在这个网站上具体看了什么网页、输入了什么密码、发送了什么消息</strong>。</p>
+<p>但是，他们依然可以清楚地知道<strong>你试图访问哪个网站</strong>、<strong>在什么时间访问</strong>以及<strong>访问的频率</strong>。对于注重隐私的用户，或者需要规避某些网络审查的人来说，这种“浏览意图”的暴露就是一种严重的安全隐患。</p>
+<hr>
+<h2 id="2024-新手教程：如何检测-DNS-泄露？"><a href="#2024-新手教程：如何检测-DNS-泄露？" class="headerlink" title="2024 新手教程：如何检测 DNS 泄露？"></a>2024 新手教程：如何检测 DNS 泄露？</h2><p>检测 DNS 泄露其实非常简单，不需要任何编程基础，只需要访问专业的测试网站即可。业界最著名的测试工具之一是 <code>dnsleaktest.com</code>。</p>
+<h3 id="测试步骤："><a href="#测试步骤：" class="headerlink" title="测试步骤："></a>测试步骤：</h3><ol>
+<li><strong>连接你的代理&#x2F;VPN</strong>：确保你的网络工具（如 Clash, sing-box, 传统 VPN 等）已经开启，并且处于你平时使用的工作模式（如全局模式或规则模式）。</li>
+<li><strong>打开浏览器</strong>：访问网址 <code>https://www.dnsleaktest.com</code>。</li>
+<li><strong>查看当前 IP</strong>：网页一打开，首先会显示一个大大的 IP 地址以及对应的国家&#x2F;地区。这应该是你代理服务器的 IP（比如显示为美国、日本或新加坡等）。如果这里显示的还是你真实的本地 IP，那说明你的代理根本没有生效，请先检查<a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">网络排障基础</a>。</li>
+<li><strong>进行深度测试</strong>：点击页面下方的 <strong>“Extended test”（扩展测试）</strong> 按钮。这个测试会迫使你的浏览器进行一系列随机的域名解析，从而彻底挖出幕后为你提供 DNS 服务的真实服务器。</li>
+<li><strong>分析测试结果</strong>：<ul>
+<li>🛡️ <strong>安全（无泄露）</strong>：如果测试结果列表中，显示的 DNS 服务器 IP 及其所属机构（ISP）都是你代理服务器所在国家&#x2F;地区的服务商（例如 Cloudflare, Google, 或某些国外的数据中心），那么恭喜你，你的 DNS 请求被成功代理了，<strong>没有发生 DNS 泄露</strong>。</li>
+<li>⚠️ <strong>危险（发生泄露）</strong>：如果在结果列表中，你看到了你真实所在地的运营商名称（比如 China Telecom, China Unicom, China Mobile），或者你真实所在城市的 IP 地址，这就意味着<strong>你发生了 DNS 泄露</strong>。你的本地运营商依然在为你解析域名。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="潜伏的影子：IPv6-泄露与-WebRTC-泄露"><a href="#潜伏的影子：IPv6-泄露与-WebRTC-泄露" class="headerlink" title="潜伏的影子：IPv6 泄露与 WebRTC 泄露"></a>潜伏的影子：IPv6 泄露与 WebRTC 泄露</h2><p>除了最常见的 DNS 泄露，现代网络环境中还有两个经常被忽视的“后门”，它们同样会暴露你的真实身份：IPv6 和 WebRTC。</p>
+<h3 id="1-IPv6-泄露是什么？"><a href="#1-IPv6-泄露是什么？" class="headerlink" title="1. IPv6 泄露是什么？"></a>1. IPv6 泄露是什么？</h3><p>目前互联网正在经历从 IPv4 向 IPv6 的过渡期。你的宽带和手机网络很可能已经默认分配了 IPv6 地址。</p>
+<p>很多早期的代理协议或配置不完善的 VPN 客户端，<strong>只拦截和代理了 IPv4 的流量</strong>。当你在浏览器中访问一个同时支持 IPv4 和 IPv6 的网站（比如 Google 或 Netflix）时，你的操作系统可能会优先尝试通过 IPv6 进行连接。由于代理软件没有接管 IPv6 流量，这部分流量就会<strong>绕过代理，直接通过你真实的本地网络发送出去</strong>。</p>
+<p>这就好比你在前门安排了重兵把守（代理了 IPv4），但后门却完全敞开（漏掉了 IPv6），别人自然可以轻松看到你的真实踪迹。</p>
+<p><strong>如何检测 IPv6 泄露？</strong><br>访问 <code>https://test-ipv6.com/</code>。在开启代理的情况下，如果页面提示检测到了你的 IPv6 地址，并且该地址属于你的本地运营商，那么你就存在 IPv6 泄露的风险。</p>
+<h3 id="2-WebRTC-泄露是什么？"><a href="#2-WebRTC-泄露是什么？" class="headerlink" title="2. WebRTC 泄露是什么？"></a>2. WebRTC 泄露是什么？</h3><p>WebRTC（Web Real-Time Communication）是一项让浏览器能够直接进行点对点（P2P）语音、视频通话和文件共享的技术。为了实现设备之间的直接连接，WebRTC 必须找到你真实的 IP 地址（它通过一种叫 STUN&#x2F;TURN 的机制来“穿透”你的网络环境）。</p>
+<p>问题在于，WebRTC 在浏览器中是默认开启的，而且它的这种机制有时会绕过操作系统的常规网络代理设置。即使你开启了 VPN，恶意的网页仍然可以通过 JavaScript 调用 WebRTC 接口，悄悄获取并暴露出你真实的本地内网 IP 甚至真实的公网 IP。</p>
+<p><strong>如何检测 WebRTC 泄露？</strong><br>访问 <code>https://browserleaks.com/webrtc</code>。在开启代理的情况下，查看页面中的 “Public IP Address”（公网 IP）一栏。如果这里显示出了你真实的本地宽带 IP，说明 WebRTC 导致了你的隐私泄露。</p>
+<hr>
+<h2 id="现代网络工具（Clash-sing-box）是如何防泄露的？"><a href="#现代网络工具（Clash-sing-box）是如何防泄露的？" class="headerlink" title="现代网络工具（Clash, sing-box）是如何防泄露的？"></a>现代网络工具（Clash, sing-box）是如何防泄露的？</h2><p>既然泄露的风险这么多，那我们平时使用的工具是如何解决这些问题的呢？对于进阶用户来说，了解像 Clash、sing-box 这样的现代网络核心（Core）的工作原理非常有帮助。（如果你还不熟悉这些工具，可以参考我们的 <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">Clash新手入门</a>）</p>
+<h3 id="1-TUN-模式（虚拟网卡）"><a href="#1-TUN-模式（虚拟网卡）" class="headerlink" title="1. TUN 模式（虚拟网卡）"></a>1. TUN 模式（虚拟网卡）</h3><p>为了防止系统中的某些软件绕过代理（导致流量或 DNS 泄露），现代工具通常会提供 <strong>TUN 模式</strong>。<br>TUN 模式会在你的操作系统底层创建一张“虚拟网卡”。它的作用是强行接管操作系统产生的所有网络流量。无论是普通的网页浏览，还是底层应用的 DNS 查询，统统会被这张虚拟网卡拦截，然后交由 Clash 或 sing-box 的路由规则引擎进行处理。这极大地降低了应用程序自行发起 DNS 查询导致泄露的风险。</p>
+<h3 id="2-Fake-IP-模式（伪装-IP）"><a href="#2-Fake-IP-模式（伪装-IP）" class="headerlink" title="2. Fake-IP 模式（伪装 IP）"></a>2. Fake-IP 模式（伪装 IP）</h3><p>这是一种非常巧妙的解决 DNS 泄露并提升访问速度的机制。<br>当你在浏览器中输入网址时，Clash 会拦截这个 DNS 请求，但它<strong>不会立刻去真实的 DNS 服务器查询</strong>，而是瞬间返回一个虚假的 IP 地址（Fake-IP，例如 <code>198.18.x.x</code>）给浏览器。<br>浏览器拿到这个虚假 IP 后发起连接。Clash 在底层捕获这个连接，识别出它原本想要访问的域名，然后再由 Clash 服务端（代理节点）去远端进行真实的 DNS 解析和连接。<br>这样一来，你的本地设备甚至不需要知道真实的 IP 是什么，也就彻底杜绝了本地 DNS 泄露的可能。</p>
+<h3 id="3-妥善处理-IPv6"><a href="#3-妥善处理-IPv6" class="headerlink" title="3. 妥善处理 IPv6"></a>3. 妥善处理 IPv6</h3><p>在现代工具的配置文件中，通常会有专门针对 IPv6 的路由策略。为了防止 IPv6 泄露，最简单粗暴但也最有效的做法之一，是在工具内部直接<strong>禁用 IPv6 路由</strong>（或者将 IPv6 的请求直接丢弃）。强制所有的流量回退到使用 IPv4 代理，从而确保流量全部走在被加密和保护的隧道中。</p>
+<hr>
+<h2 id="常见问题解答（FAQ）"><a href="#常见问题解答（FAQ）" class="headerlink" title="常见问题解答（FAQ）"></a>常见问题解答（FAQ）</h2><h3 id="1-发现-DNS-泄露，说明我的密码被盗了吗？"><a href="#1-发现-DNS-泄露，说明我的密码被盗了吗？" class="headerlink" title="1. 发现 DNS 泄露，说明我的密码被盗了吗？"></a>1. 发现 DNS 泄露，说明我的密码被盗了吗？</h3><p><strong>绝对不是。</strong> 前文提到过，DNS 仅仅是“电话簿”。泄露的只是“你想去哪个网站”的记录（比如 <code>bank.com</code>）。你在这个网站里输入的账号、密码、转账金额，都被 HTTPS 进行了强加密。即使你的 ISP 知道你访问了银行网站，也绝对看不到你的密码。</p>
+<h3 id="2-如何彻底关闭浏览器的-WebRTC-防止泄露？"><a href="#2-如何彻底关闭浏览器的-WebRTC-防止泄露？" class="headerlink" title="2. 如何彻底关闭浏览器的 WebRTC 防止泄露？"></a>2. 如何彻底关闭浏览器的 WebRTC 防止泄露？</h3><p>不同浏览器关闭 WebRTC 的难度不同：</p>
+<ul>
+<li><strong>Chrome &#x2F; Edge</strong>：由于内核限制，原生设置中很难彻底关闭。建议安装扩展程序，例如 <code>WebRTC Control</code> 或 <code>uBlock Origin</code>（在其设置中勾选“防止 WebRTC 泄露本地 IP 地址”）。</li>
+<li><strong>Firefox</strong>：在地址栏输入 <code>about:config</code>，搜索 <code>media.peerconnection.enabled</code>，将其值修改为 <code>false</code> 即可彻底关闭。</li>
+<li><strong>Brave &#x2F; Safari</strong>：通常在浏览器的隐私和安全设置中，有专门的选项可以限制 WebRTC 的 IP 处理方式。</li>
+</ul>
+<h3 id="3-我明明开了全局-VPN，为什么-DNS-依然泄露了？"><a href="#3-我明明开了全局-VPN，为什么-DNS-依然泄露了？" class="headerlink" title="3. 我明明开了全局 VPN，为什么 DNS 依然泄露了？"></a>3. 我明明开了全局 VPN，为什么 DNS 依然泄露了？</h3><p>这通常是因为你的 VPN 客户端没有正确接管操作系统的 DNS 设置。在 Windows 或 macOS 中，网络适配器的默认 DNS 优先级可能高于 VPN 分配的 DNS。尝试在你的代理软件中开启 “TUN 模式” 或 “接管系统 DNS” 选项，强制全局流量通过虚拟网卡。</p>
+<h3 id="4-为了防泄露，我应该在光猫或路由器里彻底关掉-IPv6-吗？"><a href="#4-为了防泄露，我应该在光猫或路由器里彻底关掉-IPv6-吗？" class="headerlink" title="4. 为了防泄露，我应该在光猫或路由器里彻底关掉 IPv6 吗？"></a>4. 为了防泄露，我应该在光猫或路由器里彻底关掉 IPv6 吗？</h3><p>如果你的首要诉求是绝对的匿名和防止代理流量泄露，那么在代理软件客户端（甚至操作系统网络设置里）关闭 IPv6 协议栈是最稳妥的做法。但是，随着全球 IPv6 的普及，彻底关闭它可能会导致你无法访问某些纯 IPv6 的新兴网络服务。权衡之下，最好的做法是<strong>确保你的代理软件支持并正确接管了 IPv6 流量</strong>，而不是盲目关闭。</p>
+<h3 id="5-如果我把电脑本地的-DNS-改成-8-8-8-8，还能防泄露吗？"><a href="#5-如果我把电脑本地的-DNS-改成-8-8-8-8，还能防泄露吗？" class="headerlink" title="5. 如果我把电脑本地的 DNS 改成 8.8.8.8，还能防泄露吗？"></a>5. 如果我把电脑本地的 DNS 改成 8.8.8.8，还能防泄露吗？</h3><p>把本地网络适配器的 DNS 改成 Google 的公共 DNS（8.8.8.8）或者 Cloudflare（1.1.1.1），<strong>一定程度上可以避免国内 ISP 记录你的请求</strong>。但是，这些请求如果是以<strong>明文（未加密）</strong>形式发送出国的，依然可能在传输途径中被监听或阻断。真正的防泄露，是确保 DNS 请求被加密包裹后，通过代理隧道发送到远端服务器进行解析。</p>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>在当今复杂的网络环境中，保护隐私并非只是按下一个开关那么简单。理解 DNS、IPv6 和 WebRTC 的底层机制，能够帮助我们更好地掌控自己的数据流向。</p>
+<p>通过 <code>dnsleaktest.com</code> 等简单的测试工具，你可以轻松验证当前网络环境的安全性。选择网络服务时，建议结合自己的设备、使用场景、流量和稳定性需求进行判断。提供防泄露的商业网络服务或优秀的开源客户端（如带有优质配置的 Clash &#x2F; sing-box）能够大幅降低这些潜在的技术风险。希望本文能帮你打造一个更加安全、纯净的网络环境！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" class="category-chain-item">网络工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>DNS 泄露是什么？2024 新手如何自己检测 DNS、IP 泄露？</div>
+      <div>https://jichangblog.net/2024/04/18/how-to-check-dns-leak-2024/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>站长</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/04/25/midjourney-prompt-guide-2024/" title="Midjourney Prompt 怎么写？从零理解提示词编写逻辑">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Midjourney Prompt 怎么写？从零理解提示词编写逻辑</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/18/midjourney-beginner-guide-2024/" title="Midjourney 新手教程：第一次生成 AI 图片">
+                        <span class="hidden-mobile">Midjourney 新手教程：第一次生成 AI 图片</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

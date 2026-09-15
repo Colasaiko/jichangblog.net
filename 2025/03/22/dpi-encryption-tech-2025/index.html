@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+    <link rel="canonical" href="https://jichangblog.net/2025/03/22/dpi-encryption-tech-2025/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="站长">
+  <meta name="keywords" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+  
+    <meta name="description" content="本文深入科普2025 DPI的基本概念、技术架构与工作原理，并进一步分析从深度包检测到现代网络传输技术，一次看懂，适合对该领域感兴趣的初学者与希望建立全局认知…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025 DPI 是什么？从深度包检测到现代网络传输技术">
+<meta property="og:url" content="https://jichangblog.net/2025/03/22/dpi-encryption-tech-2025/">
+<meta property="og:site_name" content="机场博客｜2026稳定机场推荐、评测与Clash使用指南">
+<meta property="og:description" content="本文深入科普2025 DPI的基本概念、技术架构与工作原理，并进一步分析从深度包检测到现代网络传输技术，一次看懂，适合对该领域感兴趣的初学者与希望建立全局认知…">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-21T17:15:00.000Z">
+<meta property="article:modified_time" content="2025-03-21T17:15:00.000Z">
+<meta property="article:author" content="站长">
+<meta property="article:tag" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2025 DPI 是什么？从深度包检测到现代网络传输技术 - 机场博客｜2026稳定机场推荐、评测与Clash使用指南</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom-bg.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jichangblog.net","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"expand_all":true},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="机场博客｜2026稳定机场推荐、评测与Clash使用指南" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>闈犺氨鏈哄満鎺ㄨ崘</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>棣栭〉</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E9%8E%BA%E3%84%A8%E5%B4%98/" target="_self">
+                <i class="iconfont icon-paper-plane"></i>
+                <span>鏈哄満鎺ㄨ崘</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E7%92%87%E5%8B%AC%E7%A5%B4/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>鏈哄満璇勬祴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BB%89%E6%88%9E%E6%AB%98%E9%8E%B8%E5%9B%A7%E5%B4%A1/" target="_self">
+                <i class="iconfont icon-compass-fill"></i>
+                <span>鏂版墜鍏ラ棬</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/Clash%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>Clash鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BC%83%E6%88%A0%E7%B2%B6%E5%AE%B8%E3%83%A5%E5%8F%BF/" target="_self">
+                <i class="iconfont icon-tools"></i>
+                <span>缃戠粶宸ュ叿</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/AI%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-cpu"></i>
+                <span>AI鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>鍗氬褰掓。</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/index_bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2025 DPI 是什么？从深度包检测到现代网络传输技术"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-22 01:15" pubdate>
+          2025年3月22日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2025 DPI 是什么？从深度包检测到现代网络传输技术</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p><strong>作者注</strong>：本文基于本站长期测试经验整理，并结合 2024–2026 年的使用记录进行分析。</p>
+</blockquote>
+<p>想象一下这样一个场景：你给远方的朋友寄了一个包裹，里面装着几本精装书。传统的海关检查可能只看包裹外面的运单，确认发件人、收件人和申报的物品类型。只要运单没问题，包裹就放行了。但在某些更严格的检查站，工作人员不仅看运单，还会把包裹放进X光机，甚至打开看看书到底是什么名字，里面有没有夹带其他东西。</p>
+<p>在网络世界里，传统的防火墙就像是那个只看运单的海关，而“深度包检测”（Deep Packet Inspection，简称 DPI）则像是配备了X光机的进阶版安检。随着网络环境的演变，普通的连接方式越来越容易遇到阻碍、速度变慢甚至直接中断。许多人发现，即便使用了加密工具，连接依然不够稳定。</p>
+<p>要弄清楚这是为什么，我们就必须深入了解 DPI 的工作原理，以及为什么传统的“把数据加密”已经不足以应对复杂的网络环境。</p>
+<h2 id="什么是深度包检测（DPI）？"><a href="#什么是深度包检测（DPI）？" class="headerlink" title="什么是深度包检测（DPI）？"></a>什么是深度包检测（DPI）？</h2><p>在讨论 DPI 之前，我们需要先简单回顾一下网络数据是如何传输的。当你在浏览器输入一个网址、观看视频或者发送信息时，你的数据并不会作为一个整体直接飞到服务器。它们会被切分成无数个细小的“数据包”（Packets）。</p>
+<p>每个数据包主要由两部分组成：</p>
+<ol>
+<li><strong>头部（Header）</strong>：这就相当于快递的运单，包含了源 IP 地址、目标 IP 地址、端口号等基础路由信息。</li>
+<li><strong>载荷（Payload）</strong>：这就是快递盒子里的实际物品，包含了你真正发送或接收的数据内容（比如网页代码、图片数据、聊天记录）。</li>
+</ol>
+<h3 id="传统防火墙的“门卫”模式"><a href="#传统防火墙的“门卫”模式" class="headerlink" title="传统防火墙的“门卫”模式"></a>传统防火墙的“门卫”模式</h3><p>早期的网络审查和防火墙（例如基础的包过滤防火墙）主要依赖于检查数据包的“头部”。它们就像一个死板的门卫，手里拿着一张黑名单：</p>
+<ul>
+<li>“目标 IP 在黑名单上？拦截。”</li>
+<li>“使用的是敏感的端口号？拦截。”</li>
+</ul>
+<p>这种方式简单高效，但非常容易被绕过。只要更换 IP 地址，或者把数据伪装成常见的端口（比如网页浏览最常用的 443 端口），门卫就会傻乎乎地放行。</p>
+<h3 id="DPI：网络流量的“X光机”"><a href="#DPI：网络流量的“X光机”" class="headerlink" title="DPI：网络流量的“X光机”"></a>DPI：网络流量的“X光机”</h3><p>深度包检测（DPI）的出现，改变了这一游戏规则。顾名思义，“深度”意味着它不再仅仅停留在检查包头，而是会深入到数据包的“载荷”部分进行分析。</p>
+<p>DPI 设备会抓取流经它的数据包，并尝试理解这些数据到底是什么协议、在做什么事情。如果把网络比作公路，传统防火墙只看车牌和车型，而 DPI 会用透视眼看看车厢里装的是不是危险品，甚至还会统计这辆车每天在这个时间段来回跑了几次。</p>
+<h2 id="DPI-真的能“看光”我的所有内容吗？"><a href="#DPI-真的能“看光”我的所有内容吗？" class="headerlink" title="DPI 真的能“看光”我的所有内容吗？"></a>DPI 真的能“看光”我的所有内容吗？</h2><p>这是关于 DPI 最常见的一个误区。许多人认为，既然 DPI 能检查载荷，那我的账号密码、聊天记录是不是全被看光了？</p>
+<p>实际上，并不完全是这样。这取决于你的数据<strong>是否经过了加密</strong>。</p>
+<p>现代互联网已经广泛普及了 HTTPS（TLS 加密）。当你访问一个 HTTPS 网站时，数据包的载荷部分是被加密成乱码的。DPI 虽然能拿到这团乱码，但如果没有解密密钥，它也无法还原出你的聊天记录或银行卡密码。</p>
+<p><strong>但是，DPI 并不需要知道你具体在说什么，它只需要知道“你在用什么工具说话”就足够了。</strong></p>
+<h3 id="加密的局限性：掩耳盗铃的困境"><a href="#加密的局限性：掩耳盗铃的困境" class="headerlink" title="加密的局限性：掩耳盗铃的困境"></a>加密的局限性：掩耳盗铃的困境</h3><p>如果数据已经加密了，DPI 是如何进行封锁和干扰的呢？答案是<strong>元数据分析与流量特征识别</strong>。</p>
+<p>加密虽然隐藏了具体的“内容”，但它无法隐藏通讯的“行为特征”。就像你每天晚上8点准时给某个人打一小时电话，虽然别人听不到你们在聊什么，但通过通话频率、时长、对方的号码，也能大致猜出你们的关系非同寻常。</p>
+<p>DPI 通过以下几个维度的元数据（Metadata）来进行精准打击：</p>
+<ol>
+<li><p><strong>流量大小与频率（Packet Size &amp; Timing）</strong><br>普通的网页浏览流量是阵发性的：你打开一个网页，下载了一批图片和文字（流量波峰），然后你花几分钟阅读（流量平息）。而如果你在看高清视频，流量则是持续且巨大的。某些代理工具在握手（建立连接）时，会发送固定长度的数据包。DPI 只要记录这些特定长度的数据包组合，就能像识别指纹一样认出这是一种代理协议。</p>
+</li>
+<li><p><strong>服务器名称指示（SNI, Server Name Indication）</strong><br>在建立 TLS（HTTPS）加密连接的最开始阶段，你的浏览器需要告诉服务器：“我想访问 A 网站，请把 A 网站的证书发给我”。这个请求中包含的域名（SNI）在传统 TLS 握手中是<strong>明文</strong>传输的。DPI 只要看到这个明文的 SNI 是黑名单里的域名，哪怕后续的所有数据都高度加密，它也可以直接在第一步掐断连接。</p>
+</li>
+<li><p><strong>连接的持续性与方向（Flow Analysis）</strong><br>如果一个 IP 地址与海外某个未知服务器长时间保持高带宽的双向加密通信，这本身就是一个非常“可疑”的行为特征，极大概率会被重点关照甚至直接限制带宽。</p>
+</li>
+</ol>
+<h2 id="现代网络传输技术：从“纯加密”到“深度伪装”"><a href="#现代网络传输技术：从“纯加密”到“深度伪装”" class="headerlink" title="现代网络传输技术：从“纯加密”到“深度伪装”"></a>现代网络传输技术：从“纯加密”到“深度伪装”</h2><p>既然单纯的加密已经无法应对 DPI 的特征分析，网络工具的开发者们便转变了思路：<strong>既然无法隐身，那就化装成普通人。</strong></p>
+<p>早期的工具致力于发明各种私有加密协议，试图让数据看起来像是一堆“毫无特征的随机乱码”（比如早期的 Shadowsocks）。但 DPI 很快学会了一招：如果在网络上看到完全无法识别的、高度随机的流量，那它大概率就是某种试图绕过审查的代理工具，直接封杀准没错。</p>
+<p>因此，现代网络传输技术的核心理念变成了<strong>伪装（Camouflage）</strong>——让你的流量看起来和几千万普通网民正常访问正规网站的流量一模一样。</p>
+<h3 id="Reality-协议：真假难辨的艺术"><a href="#Reality-协议：真假难辨的艺术" class="headerlink" title="Reality 协议：真假难辨的艺术"></a>Reality 协议：真假难辨的艺术</h3><p>在众多现代协议中，Reality 是近年来备受瞩目的技术之一。为了理解它的精妙之处，我们先看看它的前身 TLS 伪装是如何工作的，以及遇到了什么瓶颈。</p>
+<p>以前的 TLS 伪装（如 Trojan 或 Vless+TLS）需要在你的海外服务器上真的去申请一个域名，并配置一张真实的数字证书，伪装成一个正常的 HTTPS 网站。但这种做法存在几个痛点：你需要买域名、配置复杂，而且如果审查机构主动去探测你的服务器（Active Probing），可能会发现一些不自然的细节。</p>
+<p>Reality 协议采用了一种更为激进且巧妙的策略：<strong>目标消除与直接借用</strong>。</p>
+<p>Reality 不需要你自己购买域名和配置证书。它直接“借用”那些本身就在海外、且国内可以正常访问的大型知名网站（比如微软、苹果的某些企业级服务器）的公钥。</p>
+<p>当你的客户端向你的服务器发起连接时，它在表面上展示的 SNI 是“<a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.microsoft.com”./">www.microsoft.com”。</a></p>
+<ol>
+<li>如果是 DPI 或者是审查机构的探测机器人来访问你的服务器，你的服务器会表现得像一个完全无辜的转发节点，直接把探测请求扔给真正的微软服务器。审查机构看到的，就是一个真实的、具有完整合法证书的微软网站响应。</li>
+<li>而当你的客户端（带有只有你和服务器知道的验证信息）发起连接时，服务器识别出暗号，就会在加密通道内部为你建立代理传输。</li>
+</ol>
+<p><strong>Reality 的优势在于：</strong></p>
+<ul>
+<li><strong>极大地减少了特征暴露</strong>：它没有特征明显的传统 TLS 握手过程，流量外观与访问跨国企业的正常流量几乎无异。</li>
+<li><strong>抗主动探测</strong>：面临审查服务器的探测时，它能给出完美无瑕的真实网站级响应。</li>
+</ul>
+<p>需要注意的是，并没有哪种技术是绝对“完美”或永远免于被封锁的。Reality 的目的是大幅提高 DPI 识别你的成本和难度，减少签名暴露，从而获得更长久的连接稳定性。</p>
+<h3 id="sing-box：现代代理平台的集大成者"><a href="#sing-box：现代代理平台的集大成者" class="headerlink" title="sing-box：现代代理平台的集大成者"></a>sing-box：现代代理平台的集大成者</h3><p>技术的进步不仅体现在协议上，也体现在底层核心工具的迭代上。在当前的开源社区中，sing-box 作为一个新兴的通用代理平台，正逐渐成为高级用户的首选。</p>
+<p>参考 sing-box 的官方文档设计，它在架构上带来了几个显著的优势：</p>
+<ol>
+<li><p><strong>统一的传输层（Transport）与 TLS 管理</strong><br>sing-box 将底层的网络传输（如 TCP、HTTP&#x2F;2、WebSocket）与加密层（TLS、Reality）进行了模块化解耦。这意味着它可以非常灵活地组合出各种伪装形态，适应不同网络环境的需求。</p>
+</li>
+<li><p><strong>原生的 TUN 模式支持</strong><br>对于很多用户来说，代理软件最大的痛点是“有些软件走代理，有些不走”。sing-box 在核心层面深度集成了 TUN（虚拟网络接口）支持。TUN 模式会在你的设备上创建一个虚拟网卡，接管所有的网络流量。这不再依赖于应用程序自身是否支持代理设置，能够实现更底层的全局网络接管，不仅解决了 DNS 泄漏问题，也让游戏的网络延迟表现更加稳定。</p>
+</li>
+<li><p><strong>极致的性能与低资源占用</strong><br>相比于一些历史悠久、代码堆叠严重的旧平台，基于 Go 语言重写的 sing-box 在内存管理和并发处理上做了大量优化。在移动设备（手机、路由器）上，它能在提供高强度加密和复杂路由的同时，显著降低耗电量和 CPU 占用。</p>
+</li>
+</ol>
+<h2 id="常见网络问题的排查思路"><a href="#常见网络问题的排查思路" class="headerlink" title="常见网络问题的排查思路"></a>常见网络问题的排查思路</h2><p>了解了这些底层逻辑后，当你在日常使用中遇到连接问题时，就不必再像无头苍蝇一样盲目更换节点了。以下是结合 DPI 原理的一些排查步骤：</p>
+<ol>
+<li><p><strong>连接突然中断，但换个网络（如从宽带切到手机流量）就正常了</strong></p>
+<ul>
+<li><strong>原因分析</strong>：这很可能是你当前的 IP 或端口被当地运营商的 DPI 临时封控了。不同运营商的 DPI 策略和阈值是不同的。</li>
+<li><strong>解决建议</strong>：如果使用的是较为老旧的协议，建议升级到支持更好伪装的现代协议（如 Vless+Reality）。此外，检查并优化<a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">网络延迟与丢包排查</a>的基础网络状态也是必要的。</li>
+</ul>
+</li>
+<li><p><strong>能连上，但速度极慢，尤其是在晚高峰</strong></p>
+<ul>
+<li><strong>原因分析</strong>：DPI 不仅仅用于阻断，也常用于 QoS（服务质量）限速。如果你的流量被识别为“非优先级”的跨境未知流量，在网络拥堵时就会被最先丢弃。</li>
+<li><strong>解决建议</strong>：使用具有更好 TLS 伪装特性的协议，让流量看起来像正常的网页浏览。同时，选择具有更优质回国线路（如 CN2 GIA、优化专线）的服务会比单纯调整协议更直接。</li>
+</ul>
+</li>
+<li><p><strong>网页能打开，但某些特定 App 无法刷新</strong></p>
+<ul>
+<li><strong>原因分析</strong>：这些 App 可能硬编码了 DNS 解析，或者不遵循系统的系统代理设置，导致流量直接泄漏到了真实网络中被拦截。</li>
+<li><strong>解决建议</strong>：在客户端中开启类似 sing-box 的 TUN 模式（或称为虚拟网卡&#x2F;全局路由模式），强制接管所有应用层流量。</li>
+</ul>
+</li>
+</ol>
+<h2 id="常见问题解答-FAQ"><a href="#常见问题解答-FAQ" class="headerlink" title="常见问题解答 (FAQ)"></a>常见问题解答 (FAQ)</h2><h3 id="H3-DPI-能看到我的银行密码或微信聊天记录吗？"><a href="#H3-DPI-能看到我的银行密码或微信聊天记录吗？" class="headerlink" title="H3: DPI 能看到我的银行密码或微信聊天记录吗？"></a>H3: DPI 能看到我的银行密码或微信聊天记录吗？</h3><p>不能。只要你的应用本身使用的是安全的加密标准（如 HTTPS、银行级加密、微信的端到端加密），DPI 只能看到你在和谁通信，以及传输了多少数据，无法解密具体的文字、图片或密码内容。</p>
+<h3 id="H3-为什么我的网络明明没有断，但就是打不开海外网站？"><a href="#H3-为什么我的网络明明没有断，但就是打不开海外网站？" class="headerlink" title="H3: 为什么我的网络明明没有断，但就是打不开海外网站？"></a>H3: 为什么我的网络明明没有断，但就是打不开海外网站？</h3><p>这通常是 DNS 污染结合 DPI 阻断的结果。当你的设备试图查询域名对应的 IP 时，审查系统抢先返回了一个错误的 IP 地址。即使你配置了代理，如果代理软件的 DNS 防泄漏机制没做好，依然会导致请求失败。</p>
+<h3 id="H3-Reality-协议是永远不会被封锁的吗？"><a href="#H3-Reality-协议是永远不会被封锁的吗？" class="headerlink" title="H3: Reality 协议是永远不会被封锁的吗？"></a>H3: Reality 协议是永远不会被封锁的吗？</h3><p>任何技术都在动态博弈中发展。Reality 通过借用真实网站特征，极大提高了审查的“误杀成本”（如果要封你，可能要连带着把微软的服务器也封了）。它目前非常稳健，但并不存在绝对无法被识别的技术。合理的做法是保持工具和协议的定期更新。</p>
+<h3 id="H3-代理工具中的-TUN-模式和系统代理有什么区别？"><a href="#H3-代理工具中的-TUN-模式和系统代理有什么区别？" class="headerlink" title="H3: 代理工具中的 TUN 模式和系统代理有什么区别？"></a>H3: 代理工具中的 TUN 模式和系统代理有什么区别？</h3><p>系统代理（System Proxy）是一种建议性的规范，像浏览器通常会遵守，但很多独立软件（如命令行工具、某些游戏客户端）会直接无视它。TUN 模式则是直接在操作系统底层接管网络接口，无论什么软件，只要想联网，都必须经过这个虚拟网卡，真正做到了滴水不漏。</p>
+<h3 id="H3-为什么别人说好用的节点，我用起来就很卡？"><a href="#H3-为什么别人说好用的节点，我用起来就很卡？" class="headerlink" title="H3: 为什么别人说好用的节点，我用起来就很卡？"></a>H3: 为什么别人说好用的节点，我用起来就很卡？</h3><p>网络是一个极其复杂的端到端系统。你所在城市的运营商（电信&#x2F;联通&#x2F;移动）、你的家庭路由器性能、甚至你所在小区的国际出口拥堵程度，都会影响最终体验。DPI 的审查力度也是分地域的，因此不存在适合所有人的单一完美方案。</p>
+<h2 id="结语与建议"><a href="#结语与建议" class="headerlink" title="结语与建议"></a>结语与建议</h2><p>从早期的端口封锁到如今复杂的深度包检测，网络传输技术已经演变成了一场极其精密的技术博弈。理解 DPI 的工作原理，不仅能帮助我们打破对“网络监控”的未知恐惧，更能让我们在选择和配置网络工具时有的放矢。</p>
+<p>单纯的加密早已不够，合理的流量伪装才是现代网络传输的核心。如果你厌倦了频繁地排查网络故障，或者受够了老旧协议在关键时刻的掉链子，选择一个提供稳定 SLA 保障、及时跟进 Reality 等现代协议、并且拥有快速客户端更新响应的服务，将能为你节省大量的时间与精力。在这个信息高度流通的时代，把专业的技术问题交给成熟的解决方案，让网络工具回归它原本的使命——顺畅、无感地连接世界。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" class="category-chain-item">网络工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2025 DPI 是什么？从深度包检测到现代网络传输技术</div>
+      <div>https://jichangblog.net/2025/03/22/dpi-encryption-tech-2025/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>站长</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/03/22/cursor-beginner-guide-2025/" title="Cursor 新手教程：第一次让 AI 帮你写代码">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Cursor 新手教程：第一次让 AI 帮你写代码</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/20/%E9%BE%99%E7%8C%AB%E4%BA%91-2025/" title="龙猫云2025抗丢包测试：晚高峰依然稳如泰山的纯正IPLC">
+                        <span class="hidden-mobile">龙猫云2025抗丢包测试：晚高峰依然稳如泰山的纯正IPLC</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

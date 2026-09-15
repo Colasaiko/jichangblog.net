@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+
+Sitemap: https://jichangblog.net/sitemap.xml
+Sitemap: https://jichangblog.net/baidusitemap.xml

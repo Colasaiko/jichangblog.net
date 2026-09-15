@@ -1,0 +1,125 @@
+
+/* Global Background Pseudo-element */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('/img/index_bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -999;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+/* Remove default banner backgrounds so the fixed body background shines through seamlessly */
+#banner {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+/* Subtle mask behind the banner text to ensure white text readability against the background */
+.mask {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* -------------------------------------
+   Page-Specific Background Layouts
+   ------------------------------------- */
+
+/* Default / Homepage */
+body[data-page="index"]::before {
+    background-size: cover;
+    background-position: center top;
+    opacity: 1;
+}
+
+/* Specific Category: 新手入门 */
+body[data-category="科普指南"]::before {
+    background-size: cover;
+    background-position: center 20%;
+    opacity: 0.9;
+}
+
+/* Post Page (Articles) - Readability first */
+body[data-page="post"]::before {
+    background-size: 150%;
+    background-position: right bottom;
+    opacity: 0.3;
+    filter: blur(2px) brightness(0.8);
+}
+
+/* Category / Archive / Tags Pages */
+body[data-page="categories"]::before,
+body[data-page="category"]::before,
+body[data-page="archive"]::before,
+body[data-page="tags"]::before,
+body[data-page="about"]::before,
+body[data-page="links"]::before,
+body[data-page="page"]::before {
+    background-size: cover;
+    background-position: right center;
+    opacity: 0.6;
+}
+
+/* -------------------------------------
+   Card Readability enhancements
+   ------------------------------------- */
+.board, .index-card {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+}
+
+/* Dark Mode Card Readability */
+html[data-user-color-scheme="dark"] .board,
+html[data-user-color-scheme="dark"] .index-card {
+    background-color: rgba(30, 34, 43, 0.88) !important;
+}
+
+/* Additional text contrast protections for cards */
+.board p, .index-card p, .board li, .index-card li {
+    text-shadow: 0 0 1px rgba(255,255,255,0.1);
+}
+html[data-user-color-scheme="dark"] .board p,
+html[data-user-color-scheme="dark"] .index-card p,
+html[data-user-color-scheme="dark"] .board li,
+html[data-user-color-scheme="dark"] .index-card li {
+    text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+
+/* -------------------------------------
+   Mobile Responsiveness Protection
+   ------------------------------------- */
+@media (max-width: 768px) {
+    body::before {
+        background-position: center top !important;
+        opacity: 0.25 !important;
+        filter: blur(4px) brightness(0.7) !important;
+    }
+    
+    .board, .index-card {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    html[data-user-color-scheme="dark"] .board,
+    html[data-user-color-scheme="dark"] .index-card {
+        background-color: rgba(30, 34, 43, 0.96) !important;
+    }
+}
+
+/* Active Nav Item */
+.active-nav-item .nav-link {
+  color: #ffb7c5 !important; /* Soft pink matching Boli */
+  font-weight: bold;
+}
+.active-nav-item::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: #ffb7c5;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(255, 183, 197, 0.6);
+}

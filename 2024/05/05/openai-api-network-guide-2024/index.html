@@ -1,0 +1,752 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+    <link rel="canonical" href="https://jichangblog.net/2024/05/05/openai-api-network-guide-2024/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="站长">
+  <meta name="keywords" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+  
+    <meta name="description" content="本文详细评测了 openai-api-network-guide-2024 ，涵盖2026年最新测速、流媒体解锁测试及高性价比套餐推荐，帮助你快速找到适合自己。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI API 为什么 Connection Timeout 错误及解决办法">
+<meta property="og:url" content="https://jichangblog.net/2024/05/05/openai-api-network-guide-2024/">
+<meta property="og:site_name" content="机场博客｜2026稳定机场推荐、评测与Clash使用指南">
+<meta property="og:description" content="本文详细评测了 openai-api-network-guide-2024 ，涵盖2026年最新测速、流媒体解锁测试及高性价比套餐推荐，帮助你快速找到适合自己。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-04T19:20:00.000Z">
+<meta property="article:modified_time" content="2024-05-04T19:20:00.000Z">
+<meta property="article:author" content="站长">
+<meta property="article:tag" content="跨境网络,网络工具,网络服务推荐,低价且实用服务,低价机场,实用机场,老玩家评测,真实测试,避坑指南">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>OpenAI API 为什么 Connection Timeout 错误及解决办法 - 机场博客｜2026稳定机场推荐、评测与Clash使用指南</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom-bg.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jichangblog.net","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0,"expand_all":true},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="机场博客｜2026稳定机场推荐、评测与Clash使用指南" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>闈犺氨鏈哄満鎺ㄨ崘</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>棣栭〉</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E9%8E%BA%E3%84%A8%E5%B4%98/" target="_self">
+                <i class="iconfont icon-paper-plane"></i>
+                <span>鏈哄満鎺ㄨ崘</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E9%8F%88%E5%93%84%E6%BA%80%E7%92%87%E5%8B%AC%E7%A5%B4/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>鏈哄満璇勬祴</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BB%89%E6%88%9E%E6%AB%98%E9%8E%B8%E5%9B%A7%E5%B4%A1/" target="_self">
+                <i class="iconfont icon-compass-fill"></i>
+                <span>鏂版墜鍏ラ棬</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/Clash%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>Clash鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/%E7%BC%83%E6%88%A0%E7%B2%B6%E5%AE%B8%E3%83%A5%E5%8F%BF/" target="_self">
+                <i class="iconfont icon-tools"></i>
+                <span>缃戠粶宸ュ叿</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/AI%E9%8F%81%E6%AC%91%E2%96%BC/" target="_self">
+                <i class="iconfont icon-cpu"></i>
+                <span>AI鏁欑▼</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>鍗氬褰掓。</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" rel="external nofollow noreferrer" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/index_bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="OpenAI API 为什么 Connection Timeout 错误及解决办法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-05 03:20" pubdate>
+          2024年5月5日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">OpenAI API 为什么 Connection Timeout 错误及解决办法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p><strong>作者注</strong>：本文基于本站长期测试经验整理，并结合 2024–2026 年的使用记录进行分析。</p>
+</blockquote>
+<h2 id="核心概念：为什么浏览器行，代码却不行？"><a href="#核心概念：为什么浏览器行，代码却不行？" class="headerlink" title="核心概念：为什么浏览器行，代码却不行？"></a>核心概念：为什么浏览器行，代码却不行？</h2><p>要解决这个问题，首先需要理解操作系统处理网络流量的两种典型方式：<strong>系统代理（System Proxy）</strong> 和 <strong>应用层代理（Application Proxy）</strong>。</p>
+<h3 id="1-系统代理并不是“真正的系统全局”"><a href="#1-系统代理并不是“真正的系统全局”" class="headerlink" title="1. 系统代理并不是“真正的系统全局”"></a>1. 系统代理并不是“真正的系统全局”</h3><p>当我们打开常见的网络代理软件（如 Clash、V2Ray 等）并勾选“系统代理”时，软件实际上是修改了操作系统的默认网络设置（例如 Windows 的 Internet 选项，或者 macOS 的系统网络偏好设置）。</p>
+<p>绝大多数现代浏览器（如 Chrome、Edge、Safari）在发起网络请求前，会主动去读取操作系统的这个默认设置，并自觉地将流量转发到本地的代理端口（例如 <code>127.0.0.1:7890</code>）。因此，浏览器可以顺畅无阻地访问外网。</p>
+<p>然而，<strong>大部分面向开发者的命令行工具和运行环境（Terminal、Python、Node.js、Git、Docker 等）是非常“特立独行”的</strong>。它们在发起网络请求时，默认会忽略操作系统的这层配置，直接向目标 IP 发起直连请求。既然是直连，面对复杂的跨国网络环境，自然就会遭遇 <code>Connection Timeout</code>。</p>
+<h3 id="2-环境变量：开发工具的“通行证”"><a href="#2-环境变量：开发工具的“通行证”" class="headerlink" title="2. 环境变量：开发工具的“通行证”"></a>2. 环境变量：开发工具的“通行证”</h3><p>既然开发工具不看系统配置，那它们看什么？答案是：<strong>环境变量（Environment Variables）</strong>。</p>
+<p>在 Linux、macOS 以及 Windows 的终端环境中，网络请求库（如 Python 的 <code>requests</code> &#x2F; <code>urllib</code>，Node.js 的 <code>axios</code> 等）普遍约定俗成地去读取以下几个环境变量：</p>
+<ul>
+<li><code>HTTP_PROXY</code>：用于 HTTP 协议流量的代理地址。</li>
+<li><code>HTTPS_PROXY</code>：用于 HTTPS 协议流量的代理地址（OpenAI API 大量使用 HTTPS，因此这个尤为关键）。</li>
+<li><code>ALL_PROXY</code>：用于所有协议（包含 SOCKS5 等）的备用代理环境变量。</li>
+<li><code>NO_PROXY</code>：用于指定哪些域名或 IP 地址<strong>不经过代理</strong>（例如 <code>localhost,127.0.0.1,.mycompany.local</code>）。</li>
+</ul>
+<p>如果终端或代码运行环境中没有声明这些变量，您的代码就会无视本地正在运行的代理客户端。</p>
+<h3 id="3-Git-与-Docker-的网络隔离"><a href="#3-Git-与-Docker-的网络隔离" class="headerlink" title="3. Git 与 Docker 的网络隔离"></a>3. Git 与 Docker 的网络隔离</h3><p>除了普通的编程语言环境，某些复杂的开发工具拥有自己完全独立的网络栈和配置系统：</p>
+<ul>
+<li><strong>Git</strong>：在使用 SSH 协议（如 <code>git@github.com</code>）时，它完全不理会 <code>HTTP_PROXY</code>，需要单独修改 <code>~/.ssh/config</code>；在使用 HTTPS 协议时，它读取环境变量，也可以通过 <code>~/.gitconfig</code> 强制设置。</li>
+<li><strong>Docker</strong>：这是重灾区。Docker 容器是一个隔离的 Linux 环境。宿主机的环境变量、代理软件对容器内部是不可见的。此外，Docker Daemon 本身去拉取镜像（<code>docker pull</code>）的网络配置，与容器运行时（<code>docker run</code>）的网络配置又是分离的。</li>
+</ul>
+<h3 id="4-终极武器：TUN-模式（虚拟网卡）"><a href="#4-终极武器：TUN-模式（虚拟网卡）" class="headerlink" title="4. 终极武器：TUN 模式（虚拟网卡）"></a>4. 终极武器：TUN 模式（虚拟网卡）</h3><p>为了解决上述所有应用层代理“各自为战”的问题，现代代理软件引入了 <strong>TUN 模式（Tunnel）</strong>。</p>
+<p>开启 TUN 模式后，软件会在操作系统底层创建一张“虚拟网卡”。所有不知道如何走代理的软件，它们的流量会不可避免地流经操作系统的网络栈，此时虚拟网卡会在网络层（IP 层）直接将这些流量“劫持”并转发到代理节点。这就实现了真正的“全局代理”。有关如何配置以及它的底层原理，可以参考我们之前发布的 <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">Clash新手入门及TUN模式详解</a>。</p>
+<p>不过，TUN 模式并非银弹，它也有其局限性，例如可能导致本地 DNS 污染、与虚拟机软件冲突等。</p>
+<hr>
+<h2 id="12步排查指南：彻底解决-OpenAI-API-超时问题"><a href="#12步排查指南：彻底解决-OpenAI-API-超时问题" class="headerlink" title="12步排查指南：彻底解决 OpenAI API 超时问题"></a>12步排查指南：彻底解决 OpenAI API 超时问题</h2><p>如果您正在遇到 <code>Connection Timeout</code>，请严格按照以下 12 个步骤由浅入深进行排查。</p>
+<h3 id="第一阶段：账户与服务状态排查"><a href="#第一阶段：账户与服务状态排查" class="headerlink" title="第一阶段：账户与服务状态排查"></a>第一阶段：账户与服务状态排查</h3><h4 id="1-检查-API-Key-是否有效"><a href="#1-检查-API-Key-是否有效" class="headerlink" title="1. 检查 API Key 是否有效"></a>1. 检查 API Key 是否有效</h4><p>有时候超时或拒绝连接是因为认证层面的快速拦截。确保您的 <code>OPENAI_API_KEY</code> 是正确的，并且没有包含多余的空格或换行符。如果是复制粘贴的，建议放到纯文本编辑器中检查一下。</p>
+<h4 id="2-检查账户余额与-Auth-状态"><a href="#2-检查账户余额与-Auth-状态" class="headerlink" title="2. 检查账户余额与 Auth 状态"></a>2. 检查账户余额与 Auth 状态</h4><p>OpenAI 现在的计费策略非常严格。如果您的账户中没有绑定有效的信用卡，或者预充值金额已经耗尽，API 请求可能会被静默阻断或返回非预期的错误码。请登录 OpenAI Dashboard 查看 Billing 状态。</p>
+<h4 id="3-查看-OpenAI-API-官方服务状态"><a href="#3-查看-OpenAI-API-官方服务状态" class="headerlink" title="3. 查看 OpenAI API 官方服务状态"></a>3. 查看 OpenAI API 官方服务状态</h4><p>在怀疑自己网络配置之前，先看看是不是 OpenAI 服务器自己挂了。访问 <code>status.openai.com</code>。如果 API 延迟一片飘红，那您需要做的仅仅是喝杯咖啡耐心等待。</p>
+<h3 id="第二阶段：基础网络与系统配置排查"><a href="#第二阶段：基础网络与系统配置排查" class="headerlink" title="第二阶段：基础网络与系统配置排查"></a>第二阶段：基础网络与系统配置排查</h3><h4 id="4-确认基础网络连接正常"><a href="#4-确认基础网络连接正常" class="headerlink" title="4. 确认基础网络连接正常"></a>4. 确认基础网络连接正常</h4><p>请先确保您的代理节点是通畅的，也就是前文提到的：在浏览器中能正常访问 <code>https://platform.openai.com</code> 并登录。如果浏览器都打不开，说明节点或本地代理软件本身就没工作。</p>
+<h4 id="5-排查-DNS-污染"><a href="#5-排查-DNS-污染" class="headerlink" title="5. 排查 DNS 污染"></a>5. 排查 DNS 污染</h4><p>DNS 污染是导致 API 请求路由向错误服务器并超时的常见原因。许多时候，虽然配置了代理，但 DNS 解析依然走了本地直连，获取到错误的 IP。<br>您可以尝试在终端 ping 一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping api.openai.com<br></code></pre></td></tr></table></figure>
+<p>如果解析出来的 IP 属于明显被屏蔽的段或者无法连接，说明需要优化本地 DNS 配置。推荐阅读 <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">DNS防泄漏与配置优化指南</a> 获取更深入的 DNS 防护技巧。</p>
+<h4 id="6-检查系统代理端口与配置"><a href="#6-检查系统代理端口与配置" class="headerlink" title="6. 检查系统代理端口与配置"></a>6. 检查系统代理端口与配置</h4><p>打开您的代理软件，确认本地 HTTP 代理监听的端口（通常是 <code>7890</code>、<code>10809</code> 等）。如果不清楚，可以在设置面板中查看“本地监听端口 (Local Port)”。记录下这个端口号，后续配置需要用到。</p>
+<h3 id="第三阶段：开发环境与终端排查"><a href="#第三阶段：开发环境与终端排查" class="headerlink" title="第三阶段：开发环境与终端排查"></a>第三阶段：开发环境与终端排查</h3><h4 id="7-终端请求测试-curl"><a href="#7-终端请求测试-curl" class="headerlink" title="7. 终端请求测试 (curl)"></a>7. 终端请求测试 (curl)</h4><p>在配置代码之前，先用最原生的工具 <code>curl</code> 测试终端网络。在终端中执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 假设您的代理端口是 7890</span><br>curl -x http://127.0.0.1:7890 https://api.openai.com/v1/models -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$OPENAI_API_KEY</span>&quot;</span><br></code></pre></td></tr></table></figure>
+<p>如果能正常返回 JSON 数据，说明您的代理软件完全正常，问题出在<strong>环境变量</strong>或代码本身没有挂载代理。</p>
+<h4 id="8-正确配置环境变量-Env-Vars"><a href="#8-正确配置环境变量-Env-Vars" class="headerlink" title="8. 正确配置环境变量 (Env Vars)"></a>8. 正确配置环境变量 (Env Vars)</h4><p>这是解决绝大多数 Python&#x2F;Node.js 脚本超时的核心步骤。在运行代码前，您需要告诉当前终端“请使用代理”。</p>
+<p><strong>在 Linux &#x2F; macOS 中：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> http_proxy=http://127.0.0.1:7890<br><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890<br><span class="hljs-built_in">export</span> all_proxy=socks5://127.0.0.1:7890<br></code></pre></td></tr></table></figure>
+
+<p><strong>在 Windows PowerShell 中：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$env:http_proxy</span>=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br><span class="hljs-variable">$env:https_proxy</span>=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果您使用 Python 的 <code>openai</code> 官方库，最新版本的 SDK 默认使用了 <code>httpx</code>。它会自动读取上述的 <code>https_proxy</code> 环境变量。</p>
+<p>如果不想在终端里全局设置，可以在 Python 代码中动态指定：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> httpx<br><span class="hljs-keyword">from</span> openai <span class="hljs-keyword">import</span> OpenAI<br><br><span class="hljs-comment"># 显式设置环境变量</span><br>os.environ[<span class="hljs-string">&quot;HTTP_PROXY&quot;</span>] = <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br>os.environ[<span class="hljs-string">&quot;HTTPS_PROXY&quot;</span>] = <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br><br><span class="hljs-comment"># 或者在初始化 client 时显式传入 http_client (推荐这种方式，更稳定)</span><br>client = OpenAI(<br>    api_key=<span class="hljs-string">&quot;your_api_key&quot;</span>,<br>    http_client=httpx.Client(proxies=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>)<br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="第四阶段：复杂环境排查-Git-Docker-TUN"><a href="#第四阶段：复杂环境排查-Git-Docker-TUN" class="headerlink" title="第四阶段：复杂环境排查 (Git, Docker, TUN)"></a>第四阶段：复杂环境排查 (Git, Docker, TUN)</h3><h4 id="9-Git-代理配置"><a href="#9-Git-代理配置" class="headerlink" title="9. Git 代理配置"></a>9. Git 代理配置</h4><p>如果您在 <code>git clone</code> 包含大模型资源的仓库时遇到 Timeout，请通过 Git 自身的配置强制走代理：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global http.proxy http://127.0.0.1:7890<br>git config --global https.proxy http://127.0.0.1:7890<br></code></pre></td></tr></table></figure>
+<p><em>(排查完毕后如果想取消，可以使用 <code>git config --global --unset http.proxy</code>)</em></p>
+<h4 id="10-Docker-的代理隔离与穿透"><a href="#10-Docker-的代理隔离与穿透" class="headerlink" title="10. Docker 的代理隔离与穿透"></a>10. Docker 的代理隔离与穿透</h4><p>在 Docker 容器内部运行 OpenAI 脚本是非常常见的场景，但这极容易发生网络隔离导致的 Timeout。<br>容器内部是无法访问 <code>127.0.0.1:7890</code> 的，因为那指向容器自己的 localhost！您需要指向宿主机的 IP。</p>
+<p><strong>方法 A：启动时注入环境变量</strong><br>假设宿主机在局域网内的 IP 是 <code>192.168.1.100</code>（或者使用 Docker 默认网桥网关，例如 Windows&#x2F;Mac 上的 <code>host.docker.internal</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -e HTTP_PROXY=<span class="hljs-string">&quot;http://host.docker.internal:7890&quot;</span> \<br>           -e HTTPS_PROXY=<span class="hljs-string">&quot;http://host.docker.internal:7890&quot;</span> \<br>           your_image_name<br></code></pre></td></tr></table></figure>
+<p><strong>注意</strong>：要确保您的代理软件中开启了“允许局域网连接 (Allow LAN)”。</p>
+<h4 id="11-尝试开启-TUN-模式"><a href="#11-尝试开启-TUN-模式" class="headerlink" title="11. 尝试开启 TUN 模式"></a>11. 尝试开启 TUN 模式</h4><p>如果上面的环境变量配置让您感到头疼，或者某些顽固的旧框架根本不识别 <code>https_proxy</code>，那么请打开代理软件的 <strong>TUN 模式（服务模式）</strong>。<br>这通常需要管理员权限。开启后，代理软件会接管操作系统的虚拟网卡。此时，无需配置任何环境变量，您的终端、Python、Docker 流量将自动透明地路由出海。这是开发者最省心的配置方式。</p>
+<h4 id="12-切换节点与服务提供商"><a href="#12-切换节点与服务提供商" class="headerlink" title="12. 切换节点与服务提供商"></a>12. 切换节点与服务提供商</h4><p>如果您做完了以上所有步骤，偶尔还是会出现 <code>Connection Reset by Peer</code> 或者慢得令人发指的 Timeout，那么极有可能是当前使用的代理节点 IP 被 OpenAI 风控限制（常见于被大量白嫖请求污染的机房 IP，或者被 Cloudflare 拦截）。<br>这种情况下，唯一的方法是<strong>更换节点</strong>，特别是尝试使用原生住宅 IP 或高质量的小众节点。</p>
+<hr>
+<h2 id="常见问题解答-FAQs"><a href="#常见问题解答-FAQs" class="headerlink" title="常见问题解答 (FAQs)"></a>常见问题解答 (FAQs)</h2><h3 id="为什么代码里设置了-os-environ-https-proxy-还是不生效？"><a href="#为什么代码里设置了-os-environ-https-proxy-还是不生效？" class="headerlink" title="为什么代码里设置了 os.environ[&quot;https_proxy&quot;] 还是不生效？"></a>为什么代码里设置了 <code>os.environ[&quot;https_proxy&quot;]</code> 还是不生效？</h3><p>这通常是因为导入顺序问题。如果您在 <code>import requests</code> 或初始化 OpenAI 客户端<strong>之后</strong>才设置 <code>os.environ</code>，部分 HTTP 库在初始化时已经读取了系统环境（那时还是空的）。请确保 <code>os.environ</code> 赋值代码放在所有与网络相关的 <code>import</code> 语句最前面。或者更好的做法是，直接在实例化客户端时通过参数（如 <code>httpx.Client(proxies=...)</code>）传入。</p>
+<h3 id="报错-SSLError-CERT-VALIDATION-是什么原因？"><a href="#报错-SSLError-CERT-VALIDATION-是什么原因？" class="headerlink" title="报错 SSLError &#x2F; CERT_VALIDATION 是什么原因？"></a>报错 <code>SSLError</code> &#x2F; <code>CERT_VALIDATION</code> 是什么原因？</h3><p>这通常意味着您的请求确实走到了代理软件，但是代理软件对 HTTPS 流量进行了中间人（MITM）解密，导致 SSL 证书校验失败。在开发环境中，不建议对 OpenAI API 开启抓包解密。如果必须抓包，需要在代码中禁用证书校验（如 <code>verify=False</code>），但这在生产环境中是非常不安全的。</p>
+<h3 id="Node-js-中-axios-请求超时怎么处理？"><a href="#Node-js-中-axios-请求超时怎么处理？" class="headerlink" title="Node.js 中 axios 请求超时怎么处理？"></a>Node.js 中 axios 请求超时怎么处理？</h3><p>Node.js 环境下原生的 <code>axios</code> 对系统代理环境的支持较弱。推荐使用 <code>https-proxy-agent</code> 库来进行封装：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> axios = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;axios&#x27;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">HttpsProxyAgent</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;https-proxy-agent&#x27;</span>);<br><br><span class="hljs-keyword">const</span> agent = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HttpsProxyAgent</span>(<span class="hljs-string">&#x27;http://127.0.0.1:7890&#x27;</span>);<br>axios.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;https://api.openai.com/v1/chat/completions&#x27;</span>, data, &#123;<br>  <span class="hljs-attr">httpsAgent</span>: agent<br>&#125;);<br></code></pre></td></tr></table></figure>
+<p>或者如果是 OpenAI 官方 SDK Node 版本，支持配置 <code>httpAgent</code>。</p>
+<h3 id="Docker-容器内部如何访问宿主机的代理端口？"><a href="#Docker-容器内部如何访问宿主机的代理端口？" class="headerlink" title="Docker 容器内部如何访问宿主机的代理端口？"></a>Docker 容器内部如何访问宿主机的代理端口？</h3><p>除了前文提到的注入环境变量并开启代理软件的“Allow LAN”外，对于 Linux 宿主机，您可以直接使用 <code>--network host</code> 让容器共享宿主机网络，此时容器内访问 <code>127.0.0.1:7890</code> 就能直接命中宿主机代理。但在 Windows&#x2F;macOS 的 Docker Desktop 中不适用，必须使用 <code>host.docker.internal</code>。</p>
+<h3 id="为什么开启了-TUN-模式后，部分国内网站也变慢了？"><a href="#为什么开启了-TUN-模式后，部分国内网站也变慢了？" class="headerlink" title="为什么开启了 TUN 模式后，部分国内网站也变慢了？"></a>为什么开启了 TUN 模式后，部分国内网站也变慢了？</h3><p>TUN 模式会劫持所有流量，代理软件需要通过分流规则（如 GeoIP、域名黑白名单）来判断哪些流量直连、哪些走代理。如果您的分流规则不完善，可能会导致国内流量也绕道海外服务器，从而大大增加延迟。建议使用包含完善国内规则（如 <code>geoip:cn</code> 直连）的配置订阅。</p>
+<hr>
+<blockquote>
+<p><strong>写在最后：</strong><br>如果你只是偶尔在本地写几个脚本，请按照本文的步骤逐一排查，相信一定能解决困扰你的超时问题。但如果您如需进行长期的 AI 应用开发，频繁维护这些繁杂的网络配置可能会极大消耗您的精力。在这种情况下，可使用内置 TUN 优化的商业服务或者专门针对 API 访问优化的中转专线，让您把更多时间专注于代码与创新本身！</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" class="category-chain-item">网络工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OpenAI API 为什么 Connection Timeout 错误及解决办法</div>
+      <div>https://jichangblog.net/2024/05/05/openai-api-network-guide-2024/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>站长</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/10/stable-diffusion-beginner-guide/" title="Stable Diffusion 是什么？AI 绘图小白入门">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Stable Diffusion 是什么？AI 绘图小白入门</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/30/%E9%97%AA%E8%B7%83-2024/" title="老牌机场闪跃2024年度总结：生存能力最强的老牌选择">
+                        <span class="hidden-mobile">老牌机场闪跃2024年度总结：生存能力最强的老牌选择</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
