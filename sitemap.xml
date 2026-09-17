@@ -2009,13 +2009,6 @@
   </url>
   
   <url>
-    <loc>https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-Agent/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -2023,14 +2016,14 @@
   </url>
   
   <url>
-    <loc>https://jichangblog.net/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-Agent/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jichangblog.net/categories/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B/</loc>
+    <loc>https://jichangblog.net/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2051,21 +2044,14 @@
   </url>
   
   <url>
-    <loc>https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AA%E6%9D%A5/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jichangblog.net/categories/Clash%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jichangblog.net/categories/%E6%9C%BA%E5%9C%BA%E6%8E%A8%E8%8D%90/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AA%E6%9D%A5/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2101,6 +2087,20 @@
   
   <url>
     <loc>https://jichangblog.net/categories/AI%E6%95%99%E7%A8%8B/AI-%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jichangblog.net/categories/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jichangblog.net/categories/Clash%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
